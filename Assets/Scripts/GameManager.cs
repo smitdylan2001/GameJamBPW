@@ -28,7 +28,10 @@ public class GameManager : MonoBehaviour
             
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos = worldPosition.x;
-            SpawnIt(poppetje);
+            if (worldPosition.y > 0)
+            {
+                SpawnIt(poppetje);
+            }
         }
     }
     public void setExploder()
