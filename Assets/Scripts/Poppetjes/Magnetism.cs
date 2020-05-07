@@ -27,7 +27,7 @@ public class Magnetism : MonoBehaviour
 
         if (targetFound = true && rb != null)
         {
-            rb.AddForce(new Vector2(targetLocation.x - transform.position.x, targetLocation.y - transform.position.y) * magnetismStrength / Vector2.Distance(targetLocation, transform.position));
+            rb.AddForce(new Vector2(targetLocation.x - transform.position.x, targetLocation.y - transform.position.y) * (magnetismStrength / Vector2.Distance(targetLocation, transform.position)));
         }
     }
     void OnCollisionEnter2D(Collision2D collision)
