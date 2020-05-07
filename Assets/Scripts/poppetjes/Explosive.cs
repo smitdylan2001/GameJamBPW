@@ -8,6 +8,7 @@ public class Explosive : MonoBehaviour
     
     Rigidbody2D rb;
     Collider2D[] hitColliders;
+    public float range;
     float timer;
     bool hasTouched;
     // Start is called before the first frame update
@@ -23,7 +24,7 @@ public class Explosive : MonoBehaviour
         timer += Time.fixedDeltaTime;
         if (timer > 4 && hasTouched)
         {
-            ExplosionDamage(this.gameObject.transform.position, 5);
+            ExplosionDamage(this.gameObject.transform.position, range);
         }
     }
     void ExplosionDamage(Vector3 center, float radius)
