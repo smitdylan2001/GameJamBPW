@@ -23,7 +23,7 @@ public class Builder : MonoBehaviour
     private void FixedUpdate()
     {
         timer += Time.fixedDeltaTime;
-        if (timer > 5 && hasTouched)
+        if (timer > 3 && hasTouched)
         {
             rb.bodyType = RigidbodyType2D.Static;
         }
