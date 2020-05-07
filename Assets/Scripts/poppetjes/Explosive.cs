@@ -8,20 +8,23 @@ public class Explosive : MonoBehaviour
     
     Rigidbody2D rb;
     Collider2D[] hitColliders;
+    float timer;
+    bool hasTouched;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        timer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        timer += Time.fixedDeltaTime;
+        if (timer > 4 && hasTouched)
         {
             ExplosionDamage(this.gameObject.transform.position, 5);
         }
-        
     }
     void ExplosionDamage(Vector3 center, float radius)
     {
@@ -40,7 +43,6 @@ public class Explosive : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        //rb.bodyType = RigidbodyType2D.Static;
-        //Destroy(rb);
+        hasTouched = true;
     }
 }
