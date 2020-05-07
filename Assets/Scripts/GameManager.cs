@@ -20,12 +20,10 @@ public class GameManager : MonoBehaviour
         Points = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos = worldPosition.x;
             if (worldPosition.y > 0)
