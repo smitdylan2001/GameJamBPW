@@ -53,5 +53,6 @@ public class Movement : MonoBehaviour
     public void StartGame()
     {
         hasStarted = true;
+        gm.canSpawn = false;
     }
 }

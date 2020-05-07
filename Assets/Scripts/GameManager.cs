@@ -13,11 +13,15 @@ public class GameManager : MonoBehaviour
     public GameObject floaty;
     public GameObject build;
     GameObject currentSelected;
+    public bool canSpawn;
+    float timer;
 
     // Start is called before the first frame update
     void Start()
     {
         Points = 0;
+        canSpawn = true;
+        timer = 0;
     }
 
     void Update()
@@ -30,6 +34,11 @@ public class GameManager : MonoBehaviour
             {
                 SpawnIt(poppetje);
             }
+        }
+        timer += Time.deltaTime;
+        if (timer > 2)
+        {
+            canSpawn = true;
         }
     }
     public void setExploder()
@@ -74,7 +83,12 @@ public class GameManager : MonoBehaviour
         {
             currentSelected = build;
         }
-        Instantiate(currentSelected, new Vector2(mousePos, 15), Quaternion.identity);
+
+        if (canSpawn)
+        {
+            Instantiate(currentSelected, new Vector2(mousePos, 15), Quaternion.identity);
+            canSpawn = false;
+        }
 
     }
 }
