@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         }
         if (spawnThis == 0)
         {
-            currentSelected = explode;
+            currentSelected = build;
         }
         if (spawnThis == 2)
         {
