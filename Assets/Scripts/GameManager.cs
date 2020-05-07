@@ -38,6 +38,10 @@ public class GameManager : MonoBehaviour
         {
             currentSelected = explode;
         }
+        if (spawnThis == 0)
+        {
+            currentSelected = explode;
+        }
         if (spawnThis == 2)
         {
             currentSelected = magnetic;

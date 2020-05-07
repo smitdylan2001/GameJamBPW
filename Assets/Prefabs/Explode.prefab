@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4230528345727612916}
   - component: {fileID: 4514280637199463121}
   - component: {fileID: 8127836695406712467}
+  - component: {fileID: 6616611167994600651}
   - component: {fileID: 5244019497658398893}
   m_Layer: 0
   m_Name: Explode
@@ -109,6 +110,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6616611167994600651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604740328939840093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b30f7b470975949b7f02e512532018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &5244019497658398893
 Rigidbody2D:
   serializedVersion: 4
