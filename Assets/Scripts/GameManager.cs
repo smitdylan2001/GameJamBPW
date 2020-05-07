@@ -25,7 +25,9 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            mousePos = Input.mousePosition.x;
+            
+            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos = worldPosition.x;
             SpawnIt(poppetje);
         }
     }
@@ -33,6 +35,10 @@ public class GameManager : MonoBehaviour
     void SpawnIt(int spawnThis)
     {
         if (spawnThis == 1)
+        {
+            currentSelected = explode;
+        }
+        if (spawnThis == 0)
         {
             currentSelected = explode;
         }
@@ -49,5 +55,6 @@ public class GameManager : MonoBehaviour
             currentSelected = build;
         }
         Instantiate(currentSelected, new Vector2(mousePos, 15), Quaternion.identity);
+
     }
 }
