@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public int Points;
     float mousePos;
-    public int poppetje;
+    public static int poppetje;
 
     public GameObject explode;
     public GameObject magnetic;
@@ -30,6 +30,25 @@ public class GameManager : MonoBehaviour
             mousePos = worldPosition.x;
             SpawnIt(poppetje);
         }
+    }
+    public void setExploder()
+    {
+        GameManager.poppetje = 1;
+    }
+
+    public void setBuilder()
+    {
+        GameManager.poppetje = 4;
+    }
+
+    public void setMagnet()
+    {
+        GameManager.poppetje = 2;
+    }
+
+    public void setFloater()
+    {
+        GameManager.poppetje = 3;
     }
 
     void SpawnIt(int spawnThis)
