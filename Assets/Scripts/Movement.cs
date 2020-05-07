@@ -6,27 +6,38 @@ public class Movement : MonoBehaviour
 {
     public Rigidbody2D rb;
     public GameManager gm;
+    public bool hasStarted;
+    public bool hasJumped;
+    public float jumpForce;
 
 
     void Start()
     {
-
+        hasStarted = false;
+        hasJumped = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && hasStarted && !hasJumped)
         {
-            rb.bodyType = RigidbodyType2D.Static;
+            rb.AddForce(new Vector2(0, jumpForce));
+            hasJumped = true;
         }
+
+        
     }
 
     private void FixedUpdate()
     {
-        rb.AddForce(new Vector2(2f, 0f));
+        if (hasStarted)
+        {
+            rb.velocity = new Vector2(2, rb.velocity.y);
+
+        }
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -36,5 +47,11 @@ public class Movement : MonoBehaviour
             gm.Points += 1;
             this.gameObject.SetActive(false);
         }
+        hasJumped = false;
+    }
+
+    public void StartGame()
+    {
+        hasStarted = true;
     }
 }
